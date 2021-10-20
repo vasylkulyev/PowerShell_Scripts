@@ -16,8 +16,10 @@ foreach ($User in $ADUsers)
        }
        else
        {
+           #Write all samaccount names in a text file
+           Add-Content -Path "\\path\to\public\users.txt" -Encoding UTF8 -Value $Accname
            #If a user does not exist then create a new user account
-           #Account will be created in the OU listed in the $OU variable in the CSV file;
+           #Account will be created in the OU listed in the $OU variable in the CSV file
            $userProps = @{
                SamAccountName = $User.accname
                UserPrincipalName = '{0}@domain.com' -f $User.accname

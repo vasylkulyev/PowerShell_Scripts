@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Hello, WKD!
+      - name: List Folders
+        run: ls -la
 
       - name: Run a multi-line script
         run: |

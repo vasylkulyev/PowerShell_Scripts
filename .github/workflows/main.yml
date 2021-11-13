@@ -22,12 +22,12 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, WKD!
       - name: Print env vars
-          run: |
-            echo "Var1 = ${{ env.VAR1 }}"
-            echo "Var2 = ${{ env.VAR2 }}"
-            echo "Var3 = $LOCAL_VAR"
-          env:
-            LOCAL_VAR: "This is Super local Environment variable"
+        run: |
+          echo "Var1 = ${{ env.VAR1 }}"
+          echo "Var2 = ${{ env.VAR2 }}"
+          echo "Var3 = $LOCAL_VAR"
+        env:
+          LOCAL_VAR: "This is Super local Environment variable"
         
       - name: Full clone my repository
         uses: actions/checkout@v1

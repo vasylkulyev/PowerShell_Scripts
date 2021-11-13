@@ -14,9 +14,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      VAR1: "This is Job Level Variable1"
+      VAR2: "This is job Level Variable2"
+      
     steps:
       - name: Run a one-line script
         run: echo Hello, WKD!
+      - name: Print env vars
+          run: |
+            echo "Var1 = ${{ env.VAR1 }}"
+            echo "Var2 = ${{ env.VAR2 }}"
+            echo "Var3 = $LOCAL_VAR"
+          env:
+            LOCAL_VAR: "This is Super local Environment variable"
         
       - name: Full clone my repository
         uses: actions/checkout@v1
@@ -32,4 +43,4 @@ jobs:
         run: aws --version
        
       - name: Lets test some packages if they are here 2
-        run: zip
+        run: zip --version
